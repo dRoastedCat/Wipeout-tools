@@ -24,7 +24,8 @@ This tool would not exist without prior reverse-engineering work by others:
   `core/utils/pspgu.ts`, `core/primitive/aabb.ts`, `primitive/mesh.ts`) is
   the ground truth this add-on's binary parsers are ported from. Without
   access to that source, the collision and mesh vertex formats used here
-  would only be approximate.
+  would only be approximate. His work has been used under his explicit
+  permission in Claude.
 - **[thp.io](https://thp.io) (Thomas Perl)** — original public reverse
   engineering of the outer VEXX node-tree container format (`walk-vex.py`,
   2022), which this add-on's tree walker is based on.
@@ -204,10 +205,4 @@ would get written to the wrong places. To keep exports safe:
   files.** WipEout Pulse (version 6) uses a slightly different stride
   layout in places; partial support exists in the parsing code but it is
   untested.
-
-## License
-
-The parsing logic in this add-on is a direct port of TypeScript source from
-[PierreBelmondo/vscode-wipeout](https://github.com/PierreBelmondo/vscode-wipeout),
-used under its MIT license. Consider this add-on MIT-licensed as well
 unless a maintainer specifies otherwise.
