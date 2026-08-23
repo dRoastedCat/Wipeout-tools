@@ -12,6 +12,7 @@ import bpy
 import struct
 import json
 import traceback
+from mathutils import Vector
 from bpy.props import StringProperty
 from bpy_extras.io_utils import ImportHelper, ExportHelper
 
@@ -709,10 +710,13 @@ class VEX_OT_export(bpy.types.Operator, ExportHelper):
 
                 coords = [0.0] * (n * 3)
                 mesh.vertices.foreach_get('co', coords)
+                world_matrix = obj.matrix_world
 
                 n_objects += 1
                 for i in range(n):
-                    bx, by, bz = coords[i * 3], coords[i * 3 + 1], coords[i * 3 + 2]
+                    local = Vector((coords[i * 3], coords[i * 3 + 1], coords[i * 3 + 2]))
+                    world = world_matrix @ local
+                    bx, by, bz = world.x, world.y, world.z
                     gx, gy, gz = blender_to_game(bx, by, bz)
                     off = offsets[i]
 
