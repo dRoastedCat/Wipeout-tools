@@ -123,7 +123,7 @@ confirming the result is byte-for-byte identical to those edits.
 
 ## Installation
 
-1. Download `vex_blender_addon.py`.
+1. Download `vex_blender_addonv8.py`.
 2. In Blender: `Edit → Preferences → Add-ons → Install...`, select the file.
 3. Enable the checkbox next to "WipEout VEX Track Tools".
 4. Open the 3D viewport sidebar (press `N`) — a new **VEX Tools** tab
