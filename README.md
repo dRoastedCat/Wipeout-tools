@@ -19,8 +19,8 @@ result.
 This tool would not exist without prior reverse-engineering work by others:
 
 - **[PierreBelmondo/vscode-wipeout](https://github.com/PierreBelmondo/vscode-wipeout)**
-  (MIT license) — a VS Code extension for WipEout modding. Its TypeScript
-  source (`core/formats/vexx/v4/collision.ts`, `mesh.ts`,
+  a VS Code extension for WipEout modding. Its TypeScript source
+  (`core/formats/vexx/v4/collision.ts`, `mesh.ts`,
   `core/utils/pspgu.ts`, `core/primitive/aabb.ts`, `primitive/mesh.ts`) is
   the ground truth this add-on's binary parsers are ported from. Without
   access to that source, the collision and mesh vertex formats used here
