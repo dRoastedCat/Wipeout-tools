@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/31343290/README.md)
+[README.md](https://github.com/user-attachments/files/31351930/README.md)
 # WipEout VEX Track Tools (Blender Add-on)
 
 A Blender add-on to import and export the collision geometry and visual track
@@ -19,13 +19,13 @@ result.
 This tool would not exist without prior reverse-engineering work by others:
 
 - **[PierreBelmondo/vscode-wipeout](https://github.com/PierreBelmondo/vscode-wipeout)**
-  a VS Code extension for WipEout modding. Its TypeScript source
-  (`core/formats/vexx/v4/collision.ts`, `mesh.ts`,
+   — a VS Code extension for WipEout modding. Its TypeScript
+  source (`core/formats/vexx/v4/collision.ts`, `mesh.ts`,
   `core/utils/pspgu.ts`, `core/primitive/aabb.ts`, `primitive/mesh.ts`) is
   the ground truth this add-on's binary parsers are ported from. Without
   access to that source, the collision and mesh vertex formats used here
-  would only be approximate. His work has been used under his explicit
-  permission in Claude.
+  would only be approximate. His work has been used with Claude AI under
+  his direct and explicit consent.
 - **[thp.io](https://thp.io) (Thomas Perl)** — original public reverse
   engineering of the outer VEXX node-tree container format (`walk-vex.py`,
   2022), which this add-on's tree walker is based on.
@@ -123,7 +123,7 @@ confirming the result is byte-for-byte identical to those edits.
 
 ## Installation
 
-1. Download `vex_blender_addonv8.py`.
+1. Download `vex_blender_addon.py`.
 2. In Blender: `Edit → Preferences → Add-ons → Install...`, select the file.
 3. Enable the checkbox next to "WipEout VEX Track Tools".
 4. Open the 3D viewport sidebar (press `N`) — a new **VEX Tools** tab
@@ -153,6 +153,13 @@ would get written to the wrong places. To keep exports safe:
 - **Never merge/join two VEX objects together** (`Ctrl+J`). This mixes
   vertex data from two different byte-offset mappings into one mesh and
   will corrupt the export for both.
+- **Moving/rotating a whole object (Object Mode, `G`/`R`/`S`) is safe and
+  correctly exported.** Export reads each vertex's final world-space
+  position — through the object's transform — not just its raw mesh-local
+  coordinates, so a rigid move/rotate/scale of an entire object is
+  equivalent to moving all its vertices together and works exactly as
+  expected. (Earlier versions of this add-on ignored object-level
+  transforms entirely, silently dropping this kind of edit — fixed.)
 - **Be careful with duplicating objects.** Duplicating a VEX object (e.g.
   `Shift+D`) copies its custom properties too, so you can end up with two
   objects that both claim to represent the *same* source vertices. On
@@ -205,4 +212,3 @@ would get written to the wrong places. To keep exports safe:
   files.** WipEout Pulse (version 6) uses a slightly different stride
   layout in places; partial support exists in the parsing code but it is
   untested.
-unless a maintainer specifies otherwise.
