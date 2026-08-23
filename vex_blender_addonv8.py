@@ -1,7 +1,7 @@
 bl_info = {
     "name": "WipEout VEX Track Tools",
     "author": "Claude + droastedcat + community reverse engineering (PierreBelmondo/vscode-wipeout)",
-    "version": (1, 1, 0),
+    "version": (1, 9, 0),
     "blender": (4, 0, 0),
     "location": "View3D > Sidebar > VEX Tools",
     "description": "Import/export WipEout Pure/Pulse track collision and mesh geometry (.vex)",
